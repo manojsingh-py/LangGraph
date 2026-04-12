@@ -1,0 +1,20 @@
+# Ignore virtual environment
+langchain_env/
+.venv/
+venv/
+.venv
+
+
+# Ignore environment variable files
+.env
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Streamlit secrets (if used later)
+.streamlit/secrets.toml
+
+# Ignore IDE files (PyCharm)
+.idea/
