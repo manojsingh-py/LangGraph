@@ -57,6 +57,18 @@ checkpointer = InMemorySaver()
 chat_workflow = graph.compile(checkpointer=checkpointer)
 
 
+# config = {'configurable': {'thread_id': 'thread-1'}}
+#
+# int_msg = {
+#         'message': [HumanMessage(content='what is the capital of China?')],
+#     }
+#
+#
+# response = chat_workflow.invoke(input=int_msg, config=config)
+#
+# print(chat_workflow.get_state(config=config).values)
+
+
 
 # thread_id = '1'
 #
