@@ -123,12 +123,10 @@ if __name__ == "__main__":
 
         # Build initial state for this turn
         state = {"messages": [HumanMessage(content=user_input)]}
+        config = {"configurable": {"thread_id": thread_id}}
 
         # Run the graph (may hit an interrupt)
-        result = chatbot.invoke(
-            state,
-            config={"configurable": {"thread_id": thread_id}},
-        )
+        result = chatbot.invoke(input=state, config=config)
 
         # Check for HITL interrupt from purchase_stock
         interrupts = result.get("__interrupt__", [])
@@ -140,10 +138,7 @@ if __name__ == "__main__":
             decision = input("Your decision: ").strip().lower()
 
             # Resume graph with the human decision ("yes" / "no" / whatever)
-            result = chatbot.invoke(
-                Command(resume=decision),
-                config={"configurable": {"thread_id": thread_id}},
-            )
+            result = chatbot.invoke(Command(resume=decision), config=config)
 
         # Get the latest message from the assistant
         messages = result["messages"]
